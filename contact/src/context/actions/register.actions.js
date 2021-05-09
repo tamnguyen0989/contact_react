@@ -1,6 +1,6 @@
 import React from 'react';
 import axiosInstance from '../../helpers/axios'
-import { REGISTER_LOADING } from '../../constants/actionTypes/actionTypes'
+import { REGISTER_ERROR, REGISTER_LOADING, REGISTER_SUCCESS } from '../../constants/actionTypes/actionTypes'
 
 export const register = ({
     username,
@@ -19,6 +19,16 @@ export const register = ({
         email,
         password
     })
-        .then()
-        .catch(err => console.log('e', err))
+        .then(res => {
+            dispatch({
+                type: REGISTER_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: REGISTER_ERROR,
+                payload: err.response.data
+            })
+        })
 };

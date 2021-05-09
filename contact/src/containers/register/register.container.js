@@ -5,10 +5,6 @@ import RegisterUI from './register.layout';
 import useForm from './useForm'
 
 const Register = () => {
-    useEffect(() => {
-       
-    }, [])
-
     return (
         <RegisterUI form={useForm()} />
     );
