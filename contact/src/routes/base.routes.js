@@ -1,7 +1,7 @@
 import Register from  '../containers/register/register.container'
 import Login from '../containers/login/login.container'
 import Contacts from '../containers/contact/contacts/contacts.container'
-import ContactsCreate from '../containers/contact/contacts-create/contacts-create.container'
+import ContactsCreate from '../containers/contact/contactsCreate/contactsCreate.container'
 
 const routes = [
     {

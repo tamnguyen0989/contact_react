@@ -1,0 +1,1 @@
+export const COULD_NOT_CONNECT='COULD NOT CONNECT'

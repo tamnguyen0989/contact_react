@@ -1,6 +1,7 @@
 import React from 'react';
 import axiosInstance from '../../helpers/axios'
 import { REGISTER_ERROR, REGISTER_LOADING, REGISTER_SUCCESS } from '../../constants/actionTypes/actionTypes'
+import { COULD_NOT_CONNECT } from '../../constants/message.constants'
 
 export const register = ({
     username,
@@ -28,7 +29,7 @@ export const register = ({
         .catch(err => {
             dispatch({
                 type: REGISTER_ERROR,
-                payload: err.response.data
+                payload: err.response ? err.response.data : COULD_NOT_CONNECT
             })
         })
 };

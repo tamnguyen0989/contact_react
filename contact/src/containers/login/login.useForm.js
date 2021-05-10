@@ -1,8 +1,9 @@
 
 import { useContext, useEffect, useState } from "react"
 import { GlobalContext } from '../../context/Provider'
-import { register } from '../../context/actions/register.actions'
+import { register } from '../register/register.actions'
 import { useHistory } from "react-router"
+import { login } from "./login.actions"
 
 export default () => {
     const [form, setForm] = useState({})
@@ -22,6 +23,7 @@ export default () => {
     } = useContext(GlobalContext)
 
     console.log('auth', auth);
+    console.log('form', form);
 
     useEffect(() => {
         for (const item in error) {
@@ -34,7 +36,8 @@ export default () => {
 
     useEffect(() => {
         if (data)
-            history.push('/auth/login')
+            if (data.user)
+                history.push('/')
     }, [data])
 
     const onChange = (e, { name, value }) => {
@@ -46,10 +49,10 @@ export default () => {
 
     const onSubmit = () => {
         setFieldErrors({})
-        register(form)(authDispatch)
+        login(form)(authDispatch)
     }
 
-    const registerFormValid = !form.username?.length || !form.firstName?.length || !form.lastName?.length || !form?.username?.length || !form.password?.length
+    const loginFormValid = !form.username?.length || !form.password?.length
 
-    return { form, onChange, registerFormValid, onSubmit, loading, fieldErrors }
+    return { form, onChange, loginFormValid, onSubmit, loading, fieldErrors, error }
 }
