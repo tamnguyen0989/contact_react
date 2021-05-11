@@ -1,8 +1,23 @@
+import {useHistory} from 'react-router'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import './App.css';
 import { GlobalProvider } from './context/Provider';
 import routes from './routes/base.routes'
+import isAuthenticated from './utils/isAuthenticated';
+
+const RenderRoute = (route) => {
+  const history = useHistory()
+  if(route.needsAuth && !isAuthenticated()){
+    history.push('/auth/login')
+  }
+  console.log('route',route)
+  return <Route
+    path={route.path}
+    exact
+    render={(props) => <route.component {...props} />}
+  />
+}
 
 function App() {
   return (
@@ -12,12 +27,7 @@ function App() {
           <Switch>
             {
               routes.map((route, index) => (
-                <Route
-                  path={route.path}
-                  exact
-                  render={(props) => <route.component {...props} />}
-                  key={index}
-                />
+                <RenderRoute key={index} {...route} />
               ))
             }
           </Switch>

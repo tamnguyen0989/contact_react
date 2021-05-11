@@ -7,23 +7,27 @@ const routes = [
     {
         path:'/auth/register',
         component:Register,
-        title:'Register'
+        title:'Register',
+        needsAuth:false
     },
     {
         path:'/auth/login',
         component:Login,
-        title:'Login'
-    },
-    {
-        path:'/',
-        component:Contacts,
-        title:'Contacts'
+        title:'Login',
+        needsAuth:false
     },
     {
         path:'/contacts/create',
         component:ContactsCreate,
-        title:'Contacts Create'
+        title:'Contacts Create',
+        needsAuth:true
     },
+    {
+        path:'/',
+        component:Contacts,
+        title:'Contacts',
+        needsAuth:true
+    },    
 ]
 
 export default routes
