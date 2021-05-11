@@ -1,5 +1,5 @@
 import React from 'react';
-import axiosInstance from '../../helpers/axios'
+import axiosInstance from '../../helpers/axiosInstance'
 import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS } from '../../constants/actionTypes/actionTypes'
 import { COULD_NOT_CONNECT } from '../../constants/message.constants'
 
