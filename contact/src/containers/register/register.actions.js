@@ -13,7 +13,7 @@ export const register = ({
     dispatch({
         type: REGISTER_LOADING
     })
-    axiosInstance.post('/auth/register', {
+    axiosInstance().post('/auth/register', {
         username,
         first_name,
         last_name,

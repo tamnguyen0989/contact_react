@@ -10,7 +10,7 @@ export const login = ({
     dispatch({
         type: LOGIN_LOADING
     })
-    axiosInstance.post('/auth/login', {
+    axiosInstance().post('/auth/login', {
         username,
         password
     })
