@@ -11,7 +11,7 @@ const RenderRoute = (route) => {
   if(route.needsAuth && !isAuthenticated()){
     history.push('/auth/login')
   }
-  console.log('route',route)
+  window.document.title = route.title || 'TrulyContacts'
   return <Route
     path={route.path}
     exact

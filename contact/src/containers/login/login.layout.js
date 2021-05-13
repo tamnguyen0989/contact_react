@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Form, Grid, Header as SemanticHeader, Message, Segment } from 'semantic-ui-react';
 import Header from '../../components/header/header.component'
 
@@ -45,6 +46,7 @@ const LoginUI = ({ form: { form, onChange, loginFormValid, onSubmit, loading, fi
                                 onClick={onSubmit} positive fluid
                                 disabled={loginFormValid || loading} type='submit'>Submit</Button>
                         </Form>
+                        <Segment>Need an account <Link to='/auth/register'>Register</Link></Segment>
                     </Segment>
                 </Grid.Column>
             </Grid>
