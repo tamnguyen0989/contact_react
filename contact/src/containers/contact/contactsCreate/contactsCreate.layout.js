@@ -12,35 +12,16 @@ const ContactsCreateUI = () => {
                     <Card fluid>
                         <Card.Content>
                             <Form>
-                                <Form.Group widths='equal'>
+                                <Form.Group widths='2'>
                                     <Form.Input fluid label='First name' placeholder='First name' />
                                     <Form.Input fluid label='Last name' placeholder='Last name' />
+                                </Form.Group>
+                                <Form.Group widths='2'>
                                     <Form.Select
                                         fluid
                                         label='Gender'
                                         options={options}
                                         placeholder='Gender'
-                                    />
-                                </Form.Group>
-                                <Form.Group inline>
-                                    <label>Size</label>
-                                    <Form.Radio
-                                        label='Small'
-                                        value='sm'
-                                        checked={value === 'sm'}
-                                        onChange={this.handleChange}
-                                    />
-                                    <Form.Radio
-                                        label='Medium'
-                                        value='md'
-                                        checked={value === 'md'}
-                                        onChange={this.handleChange}
-                                    />
-                                    <Form.Radio
-                                        label='Large'
-                                        value='lg'
-                                        checked={value === 'lg'}
-                                        onChange={this.handleChange}
                                     />
                                 </Form.Group>
                                 <Form.TextArea label='About' placeholder='Tell us more about you...' />
